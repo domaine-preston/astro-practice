@@ -1,0 +1,32 @@
+---
+const name = 'Margaret'
+console.log('Name: ', name);
+
+const profiles = [
+  {name: "Gary", state: "AZ"},
+  {name: "Anna", state: "WA"},
+  {name: "Bart", state: "TX"}
+]
+---
+
+<section class='container p-8'>
+  <h1>App</h1>
+
+  <h2 id='subheading' class='my-8 p-4'>Hello, {name}</h2>
+
+  <button id='btn' class='px-16 py-4 border border-gray-900 rounded' type='button'>Click</button>
+
+  <ul>
+    {profiles.map(p => {
+      return <li>{p.name} at {p.state}</li>
+    })}
+  </ul>
+</section>
+
+<script>
+  console.log('client side');
+  document.querySelector('#btn')
+    .addEventListener('click', () => {
+      document.querySelector('#subheading').classList.toggle('bg-gray-500')
+    })
+</script>
